@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blogs Form</title>
+  </head>
+  <body>
+    <%if(user){%>
+    <h3><%= user.firstname%></h3>
+    <%}%> <%blog.forEach(blog=>{%>
+    <form method="POST" action="/blog/<%= blog.slug%>">
+      <fieldset>
+        <input
+          name="title"
+          placeholder="title"
+          type="text"
+          value="<%=
+        blog.title%>"
+        />
+        <input
+          name="description"
+          placeholder="description"
+          type="text"
+          value="<%=
+        blog.description%>"
+        />
+        <input
+          name="tags"
+          placeholder="tags"
+          type="text"
+          value="<%=
+        blog.title%>"
+        />
+        <input
+          name="author"
+          placeholder="author"
+          type="text"
+          value="<%=
+        blog.author%>"
+        />
+        <input type="submit" value="Add blog article" />
+      </fieldset>
+      <%})%>
+    </form>
+  </body>
+</html>
