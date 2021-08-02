@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%if(user){%>
+    <h3><%= user.firstname%></h3>
+    <%}%> <%blog.forEach(blog=>{%>
+    <p><%= blog.title%></p>
+    <p><%= blog.description%></p>
+    <p>author:<%= blog.author.firstname%></p>
+    <p><%= blog.tags%></p>
+    <a href="/blog/<%= blog.slug%>/edit">
+      <button>Update info</button>
+    </a>
+    <a href="/blog/<%= blog.slug%>/delete">
+      <button>Delete info</button>
+    </a>
+    <a href="/blog/">
+      <button>Back to the list</button>
+    </a>
+    <a href="/">
+      <button>Home</button>
+    </a>
+    <p><%= blog.likes%></p>
+    <a href="/blog/opinion/<%= blog.slug%>/likes">
+      <button>like</button>
+    </a>
+    <p><%= blog.dislikes%></p>
+    <a href="/blog/opinion/<%= blog.slug%>/dislikes">
+      <button>dislike</button>
+    </a>
+
+    <form action="/blog/<%= blog.slug%>/comments" method="POST">
+      <fieldset>
+        <textarea name="content"></textarea>
+        <input type="submit" value="add" />
+      </fieldset>
+    </form>
+    <%blog.comments.forEach(comment=>{%>
+    <p><%= comment.content%></p>
+    <p><%= comment.likes%></p>
+    <a href="/comment/<%= comment.id%>/likes">
+      <button>like</button>
+    </a>
+    <p><%= comment.dislikes%></p>
+    <a href="/comment/<%= comment.id%>/dislikes">
+      <button>dislike</button>
+    </a>
+    <a href="/comment/<%= comment.id%>/edit">
+      <button>edit</button>
+    </a>
+    <a href="/comment/<%= comment.id%>/delete">
+      <button>delete</button>
+    </a>
+    <%})%> <%})%>
+  </body>
+</html>
