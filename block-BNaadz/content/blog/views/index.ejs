@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+  </head>
+  <body>
+    <%if(user){%>
+    <h3><%= user.firstname%></h3>
+    <%}%>
+    <p>Welcome to my blog</p>
+    <header>
+      <section class="nav-bar">
+        <strong> Home </strong>
+        <div>
+          <a href="users/login">
+            <button>Login</button>
+          </a>
+          <a href="users/register">
+            <button>register</button>
+          </a>
+          <a href="/users/logout">
+            <button>Logout</button>
+          </a>
+        </div>
+      </section>
+    </header>
+    <a href="/blog/">
+      <button>See my blogs</button>
+    </a>
+    <a href="/blog/new">
+      <button>Add new article</button>
+    </a>
+  </body>
+</html>
