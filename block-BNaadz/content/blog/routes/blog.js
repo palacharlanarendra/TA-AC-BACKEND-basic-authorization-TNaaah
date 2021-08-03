@@ -19,9 +19,10 @@ router.get('/new', auth.loggedInUser, function (req, res) {
 router.get('/:slug', function (req, res, next) {
   var slug = req.params.slug;
   Blog.find({ slug: slug })
+    .populate('comments')
     .populate('author', 'firstname email')
     .exec((err, blog) => {
-      console.log(err, blog);
+      // console.log(err, blog);
       if (err) return next(err);
       res.render('singleUser', { blog: blog });
     });
@@ -75,6 +76,7 @@ router.post('/:slug/comments', (req, res, next) => {
   console.log(req.params);
   var slug = req.params.slug;
   req.body.blogId = slug;
+  req.body.commentor = req.user._id;
   Comment.create(req.body, (err, comment) => {
     Blog.findOneAndUpdate(
       slug,

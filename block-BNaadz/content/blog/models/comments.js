@@ -7,6 +7,7 @@ var commentSchema = new Schema(
     blogId: { type: String, ref: 'Blog', required: true },
     likes: { type: Number, default: 0 },
     dislikes: { type: Number, default: 0 },
+    commentor: { type: Schema.Types.ObjectId, ref: 'Comment', required: true },
   },
   { timestamps: true }
 );
