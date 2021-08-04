@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+  </head>
+  <body>
+    <p>Welcome <%= fullName%></p>
+    <p>Login success</p>
+    <section class="buttons">
+      <a href="/">
+        <button>Home</button>
+      </a>
+    </section>
+    <section class="item">
+      <h2>my products</h2>
+      <%products.forEach(product=>{%>
+      <img src="<%= product.image%>" />
+      <p><%= product.name%></p>
+      <p><%= product.quantity%></p>
+      <p><%= product.price%></p>
+      <p><%= product.likes%></p>
+      <a href="/product/<%= product.id%>">
+        <button>View More</button>
+      </a>
+      <a href="/product/<%= product.id%>/addToCart">
+        <button>Add to cart</button>
+      </a>
+    </section>
+
+    <%})%>
+  </body>
+</html>
