@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="item">
+      <h2>my products</h2>
+      <%products.forEach(product=>{%>
+      <img src="<%= product.image%>" />
+      <p><%= product.name%></p>
+      <p><%= product.quantity%></p>
+      <p><%= product.price%></p>
+      <p><%= product.likes%></p>
+    </section>
+    <section class="buttons">
+      <a href="/product/<%= product.id%>">
+        <button>View More</button>
+      </a>
+      <a href="/">
+        <button>Home</button>
+      </a>
+    </section>
+    <%})%>
+    <section>
+      <h3>users section Block/ unblock</h3>
+    </section>
+  </body>
+</html>

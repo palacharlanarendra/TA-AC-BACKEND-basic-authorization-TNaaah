@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="/product/logout">
+      <button>logout</button>
+    </a>
+    <section class="item">
+      <h2>my products</h2>
+      <%products.forEach(product=>{%>
+      <img src="<%= product.image%>" />
+      <p><%= product.name%></p>
+      <p><%= product.quantity%></p>
+      <p><%= product.price%></p>
+      <p><%= product.likes%></p>
+      <a href="/product/<%= product.id%>/edit">
+        <button>Update info</button>
+      </a>
+      <a href="/product/<%= product.id%>/delete">
+        <button>Delete info</button>
+      </a>
+    </section>
+    <section class="buttons">
+      <a href="/product/<%= product.id%>">
+        <button>View More</button>
+      </a>
+      <a href="/">
+        <button>Home</button>
+      </a>
+    </section>
+    <%})%>
+    <h3>categories</h3>
+    <p><%= categories%></p>
+    <h3>users</h3>
+    <%users.forEach((users)=>{%>
+    <p><%= users.firstname%> <%= users.lastname%></p>
+    <%})%>
+  </body>
+</html>
