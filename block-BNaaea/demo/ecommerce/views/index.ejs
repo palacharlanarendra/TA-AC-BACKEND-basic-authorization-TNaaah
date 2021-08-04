@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>index</title>
+    <link rel="stylesheet" href="stylesheets/style.css" />
+  </head>
+  <body>
+    <p>Welcome to my product</p>
+    <header>
+      <section class="nav-bar">
+        <strong> Home </strong>
+        <div>
+          <a href="users/login">
+            <button>Login</button>
+          </a>
+          <a href="users/register">
+            <button>register</button>
+          </a>
+          <a href="users/logout">
+            <button>logout</button>
+          </a>
+        </div>
+      </section>
+    </header>
+
+    <a href="/admin/login">
+      <button>Add new article</button>
+    </a>
+    <section class="item">
+      <h2>my products</h2>
+      <%products.forEach(product=>{%>
+      <img src="<%= product.image%>" />
+      <p><%= product.name%></p>
+      <p><%= product.quantity%></p>
+      <p><%= product.price%></p>
+      <p><%= product.likes%></p>
+    </section>
+    <%})%>
+  </body>
+</html>

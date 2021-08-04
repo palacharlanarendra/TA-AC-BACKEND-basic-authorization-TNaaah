@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="<%= product.image%>" />
+    <p><%= product.name%></p>
+    <p><%= product.quantity%></p>
+    <p><%= product.price%></p>
+    <p><%= product.likes%></p>
+    <a href="/product/">
+      <button>Back to the list</button>
+    </a>
+    <a href="/">
+      <button>Home</button>
+    </a>
+    <a href="/product/<%= product.id%>/likes">
+      <button>increase</button>
+    </a>
+    <a href="/product/<%= product.id%>/dislikes">
+      <button>decrease</button>
+    </a>
+
+    <form action="/product/<%= product.id%>/comments" method="POST">
+      <fieldset>
+        <textarea name="content"></textarea>
+        <input type="submit" value="add" />
+      </fieldset>
+    </form>
+    <%product.comments.forEach(comment=>{%>
+    <p><%= comment.content%></p>
+    <p><%= comment.likes%></p>
+    <a href="/comment/<%= comment.id%>/likes">
+      <button>like</button>
+    </a>
+    <p><%= comment.dislikes%></p>
+    <a href="/comment/<%= comment.id%>/dislikes">
+      <button>dislike</button>
+    </a>
+    <a href="/comment/<%= comment.id%>/edit">
+      <button>edit</button>
+    </a>
+    <a href="/comment/<%= comment.id%>/delete">
+      <button>delete</button>
+    </a>
+    <%})%>
+  </body>
+</html>
