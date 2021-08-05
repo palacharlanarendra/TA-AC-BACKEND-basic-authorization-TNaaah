@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Podcast new form</title>
+  </head>
+  <body>
+    <section>
+      <form method="POST" action="/users/newUserEntry">
+        <fieldset>
+          <input name="title" placeholder="title" type="text" />
+          <input name="description" placeholder="description" type="text" />
+          <input name="artist" placeholder="artist" type="text" />
+          <input name="image" placeholder="image url" type="text" />
+          <input name="likes" placeholder="likes" type="number" />
+          <input name="dislikes" placeholder="dislikes" type="number" />
+          <select name="category" id="category">
+            <option value="free">Free</option>
+          </select>
+          <input type="submit" value="Add New Podcast" />
+        </fieldset>
+      </form>
+    </section>
+  </body>
+</html>
