@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to Podcast></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <a href="/admin/logout">
+      <button>Admin logout</button>
+    </a>
+    <a href="/users/logout">
+      <button>User logout</button>
+    </a>
+    <main class="main">
+      <section class="flex">
+        <p>user login form</p>
+        <form action="/users/login" method="POST">
+          <input name="email" placeholder="email" type="email" />
+          <input name="password" placeholder="password" type="password" />
+          <input type="submit" value="login" />
+        </form>
+        <a href="/users/register">
+          <button>Register</button>
+        </a>
+      </section>
+      <section class="flex">
+        <p>Admin login form</p>
+        <form action="/admin/login" method="POST">
+          <input name="email" placeholder="email" type="email" />
+          <input name="password" placeholder="password" type="password" />
+          <input type="submit" value="login" />
+        </form>
+        <a href="/admin/register">
+          <button>Register</button>
+        </a>
+      </section>
+    </main>
+  </body>
+</html>
